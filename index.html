@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TF ACCESORIES | Conecta con tu estilo</title>
+<style>
+:root{--bg:#0d0b12;--panel:#17131f;--purple:#8b45f6;--violet:#b68aff;--ink:#17131f;--muted:#a9a3b4;--line:#e9e5ef}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#f7f6fa;color:var(--ink)}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+header{background:var(--bg);color:white;position:sticky;top:0;z-index:5;border-bottom:1px solid #292333}
+.nav{max-width:1180px;margin:auto;padding:14px 22px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:10px;color:white;text-decoration:none;min-width:220px}
+.mark{width:42px;height:42px;border:2px solid var(--violet);border-radius:12px 12px 9px 9px;display:grid;place-items:center;color:var(--violet);font-size:24px}
+.brand b{font-size:20px;letter-spacing:.5px}.brand small{display:block;color:#c8bdd8;font-size:11px;letter-spacing:2px}
+nav{display:flex;gap:18px;flex:1}nav a{color:#e8e2f0;text-decoration:none;font-size:14px}
+.nav-actions{display:flex;gap:9px}.btn{background:var(--purple);color:white;padding:11px 17px;border-radius:30px;font-weight:700}.btn.outline{background:transparent;border:1px solid var(--violet);color:white}
+.hero{background:radial-gradient(circle at 78% 30%,#45206d 0,transparent 35%),linear-gradient(115deg,#0d0b12,#21132f);color:white}
+.hero-inner{max-width:1180px;margin:auto;padding:65px 22px 60px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:30px}
+.eyebrow{color:#c8a6ff;text-transform:uppercase;letter-spacing:3px;font-size:12px;font-weight:700}
+h1{font-size:clamp(38px,6vw,66px);line-height:1.02;margin:14px 0}.hero p{font-size:18px;color:#ded6e9;max-width:520px;line-height:1.6}
+.hero-art{min-height:260px;border:1px solid #573b79;border-radius:28px;background:linear-gradient(140deg,#21152e,#0d0b12);display:grid;place-items:center;position:relative;overflow:hidden}
+.hero-art:before{content:"";position:absolute;width:260px;height:260px;border:2px solid #9957fa;border-radius:50%;transform:rotate(-25deg) scaleX(1.5)}
+.bag{font-size:110px;filter:drop-shadow(0 12px 20px #000);z-index:1}.phone{position:absolute;font-size:56px;z-index:2;transform:translateY(5px)}
+.wrap{max-width:1180px;margin:auto;padding:30px 22px}
+.categories{display:flex;gap:10px;overflow:auto;padding:4px 0 22px}.chip{background:white;border:1px solid var(--line);padding:11px 17px;border-radius:25px;white-space:nowrap;color:#37313f}.chip.active{background:#21152e;color:white;border-color:#21152e}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:12px 0 20px}.section-head h2{margin:0;font-size:27px}.section-head p{margin:5px 0 0;color:#777080}
+.search{padding:11px 14px;border:1px solid var(--line);border-radius:25px;width:min(100%,260px);background:white}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.card{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 5px 18px #21152e0a}
+.product-img{height:185px;display:grid;place-items:center;background:linear-gradient(135deg,#f1edf6,#ded8e8);font-size:76px;position:relative}
+.like{position:absolute;right:12px;top:12px;border-radius:50%;width:38px;height:38px;background:#ffffffdf;color:#6d38ad;font-size:22px}
+.like.on{color:#8b45f6}.card-body{padding:14px}.card h3{font-size:15px;margin:0 0 6px}.meta{font-size:12px;color:#827b8c}.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:13px}.likes{font-size:12px;color:#7a7185}.tiny{font-size:12px;color:#8b45f6;font-weight:700}
+.contact-card{margin-top:28px;background:#17121f;color:white;border-radius:22px;padding:24px;display:flex;justify-content:space-between;align-items:center;gap:18px}.contact-card p{color:#c9c0d3;margin:6px 0}
+footer{background:#0d0b12;color:#d8d0e1;margin-top:45px;padding:28px 22px;text-align:center;font-size:13px}
+.modal{display:none;position:fixed;inset:0;background:#08060dcc;z-index:20;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.dialog{background:white;width:min(100%,440px);border-radius:20px;padding:24px;position:relative}.close{position:absolute;right:15px;top:12px;background:#f0edf4;border-radius:50%;width:32px;height:32px}.dialog h2{margin:0 0 6px}.dialog p{color:#716a7a;font-size:14px}.field{display:block;width:100%;padding:12px 13px;border:1px solid #ded8e7;border-radius:10px;margin:10px 0}.notice{font-size:12px;background:#f5f0fc;padding:10px;border-radius:9px;color:#665778;line-height:1.5}
+#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#21152e;color:white;padding:12px 18px;border-radius:30px;display:none;z-index:30}
+@media(max-width:850px){.nav{flex-wrap:wrap}.brand{min-width:unset;flex:1}nav{order:3;width:100%;overflow:auto}.hero-inner{grid-template-columns:1fr}.hero-art{min-height:190px}.products{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.nav-actions .outline{display:none}.products{gap:10px}.product-img{height:145px;font-size:60px}.section-head{align-items:start;flex-direction:column}.search{width:100%}.contact-card{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="nav">
+<a class="brand" href="#"><span class="mark">▱</span><span><b>TF ACCESORIES</b><small>CONECTA CON TU ESTILO</small></span></a>
+<nav><a href="#inicio">Inicio</a><a href="#catalogo">Catálogo</a><a href="#categorias">Categorías</a><a href="#contacto">Contacto</a></nav>
+<div class="nav-actions"><button class="btn outline" onclick="openModal('login')">Iniciar sesión</button><button class="btn" onclick="openModal('register')">Crear cuenta</button></div>
+</div></header>
+<section class="hero" id="inicio"><div class="hero-inner">
+<div><div class="eyebrow">Accesorios para Apple & Android</div><h1>Tu tecnología,<br><span style="color:#ad78ff">tu estilo.</span></h1><p>Descubre accesorios para darle personalidad y funcionalidad a tu teléfono. Explora nuestra vista previa y encuentra tus favoritos.</p><a class="btn" href="#catalogo" style="display:inline-block;text-decoration:none">Explorar catálogo →</a></div>
+<div class="hero-art"><div class="bag">🛍️</div><div class="phone">📱</div></div>
+</div></section>
+<main class="wrap" id="catalogo">
+<div class="section-head"><div><div class="eyebrow" style="color:#8b45f6">Descubre TF</div><h2>Vista previa de productos</h2><p>Explora y deja tu Me gusta, incluso sin registrarte.</p></div><input class="search" id="search" placeholder="Buscar productos..." oninput="render()"></div>
+<div class="categories" id="categorias">
+<button class="chip active" onclick="setCategory('Todos',this)">Todos</button><button class="chip" onclick="setCategory('Fundas',this)">Fundas</button><button class="chip" onclick="setCategory('Cargadores',this)">Cargadores</button><button class="chip" onclick="setCategory('Audífonos',this)">Audífonos</button><button class="chip" onclick="setCategory('Cables',this)">Cables</button><button class="chip" onclick="setCategory('Soportes',this)">Soportes</button>
+</div>
+<div class="products" id="products"></div>
+<div class="contact-card" id="contacto"><div><div class="eyebrow">¿Te interesa algo?</div><h2 style="margin:8px 0">Hablemos de tu próximo accesorio.</h2><p>Crea tu cuenta para escribirnos por el chat interno y consultar disponibilidad.</p></div><button class="btn" onclick="openModal('register')">Registrarme para contactar</button></div>
+</main>
+<footer>TF ACCESORIES · Conecta con tu estilo · Catálogo de accesorios Apple y Android</footer>
+<div class="modal" id="modal"><div class="dialog"><button class="close" onclick="closeModal()">×</button><div id="modal-content"></div></div></div><div id="toast"></div>
+<script>
+const items=[
+{id:1,name:'Funda transparente para iPhone',cat:'Fundas',emoji:'📱',likes:245,desc:'Protección con diseño transparente'},
+{id:2,name:'Audífonos inalámbricos Bluetooth',cat:'Audífonos',emoji:'🎧',likes:189,desc:'Audio inalámbrico para tu día'},
+{id:3,name:'Cargador rápido tipo C',cat:'Cargadores',emoji:'🔌',likes:176,desc:'Carga práctica y compacta'},
+{id:4,name:'Soporte ajustable para celular',cat:'Soportes',emoji:'📲',likes:132,desc:'Comodidad para escritorio'},
+{id:5,name:'Cable USB-C reforzado',cat:'Cables',emoji:'〰️',likes:98,desc:'Conectividad para tus dispositivos'},
+{id:6,name:'Funda protectora Android',cat:'Fundas',emoji:'🛡️',likes:114,desc:'Opciones para diferentes modelos'},
+{id:7,name:'Cargador inalámbrico',cat:'Cargadores',emoji:'⚡',likes:87,desc:'Carga sin enredos'},
+{id:8,name:'Audífonos compactos',cat:'Audífonos',emoji:'🎶',likes:76,desc:'Tu música donde vayas'}
+];
+let category='Todos';let liked=JSON.parse(localStorage.getItem('tf_liked')||'[]');
+function render(){const q=(document.getElementById('search').value||'').toLowerCase();const list=items.filter(p=>(category==='Todos'||p.cat===category)&&(p.name.toLowerCase().includes(q)||p.cat.toLowerCase().includes(q)));document.getElementById('products').innerHTML=list.map(p=>`<article class="card"><div class="product-img">${p.emoji}<button class="like ${liked.includes(p.id)?'on':''}" aria-label="Me gusta" onclick="toggleLike(${p.id})">${liked.includes(p.id)?'♥':'♡'}</button></div><div class="card-body"><h3>${p.name}</h3><div class="meta">${p.cat} · Consulta disponibilidad</div><div class="card-foot"><span class="likes">♥ ${p.likes+(liked.includes(p.id)?1:0)} Me gusta</span><span class="tiny">Vista previa</span></div></div></article>`).join('')||'<p>No encontramos productos con esa búsqueda.</p>'}
+function setCategory(c,el){category=c;document.querySelectorAll('.chip').forEach(x=>x.classList.remove('active'));el.classList.add('active');render()}
+function toggleLike(id){liked=liked.includes(id)?liked.filter(x=>x!==id):[...liked,id];localStorage.setItem('tf_liked',JSON.stringify(liked));render();toast('¡Gracias por tu Me gusta!')}
+function toast(s){let t=document.getElementById('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+function openModal(type){let content=type==='register'?`<h2>Crear cuenta</h2><p>Regístrate para contactar a TF ACCESORIES y guardar tus favoritos.</p><form onsubmit="demoSubmit(event,'registro')"><input class="field" required placeholder="Nombre completo"><input class="field" required type="tel" placeholder="Número de teléfono"><input class="field" required type="password" placeholder="Crea una contraseña"><button class="btn" style="width:100%">Crear cuenta</button></form><div class="notice">Demostración: este formulario no envía ni almacena tus datos. El registro real se conectará a un servicio seguro.</div>`:`<h2>Iniciar sesión</h2><p>Accede a tu cuenta de cliente.</p><form onsubmit="demoSubmit(event,'inicio de sesión')"><input class="field" required type="tel" placeholder="Número de teléfono"><input class="field" required type="password" placeholder="Contraseña"><button class="btn" style="width:100%">Ingresar</button></form><div class="notice">Demostración: el inicio de sesión real requiere configurar autenticación segura.</div>`;document.getElementById('modal-content').innerHTML=content;document.getElementById('modal').classList.add('show')}
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function demoSubmit(e,what){e.preventDefault();closeModal();toast('Vista de '+what+' lista para conectar al sistema real.')}
+render();
+</script>
+</body></html>
